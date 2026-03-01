@@ -1,0 +1,250 @@
+.selector {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.selector__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9375rem;
+}
+
+.selector__section-label {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.selector__stats {
+  color: var(--color-text-muted);
+}
+
+.selector__body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.selector__sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 1rem 0;
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.selector__back {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.selector__back:hover {
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
+}
+
+.selector__nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Адаптив: только размеры, структура не меняется */
+@media (max-width: 768px) {
+  .selector__header {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    gap: 0.5rem;
+  }
+
+  .selector__sidebar {
+    width: 180px;
+    padding: 0.75rem 0;
+  }
+
+  .selector__back {
+    padding: 0.4rem 0.75rem;
+    margin: 0 0.5rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .selector__nav-item {
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .selector__nav-caret {
+    font-size: 1rem;
+  }
+
+  .selector__content {
+    padding: 1rem;
+  }
+
+  .selector__list {
+    max-width: none;
+  }
+
+  .selector__label {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .selector__item-value {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .selector__header {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .selector__sidebar {
+    width: 120px;
+    padding: 0.5rem 0;
+  }
+
+  .selector__back {
+    padding: 0.35rem 0.5rem;
+    margin: 0 0.35rem 0.35rem;
+    font-size: 0.75rem;
+  }
+
+  .selector__nav-item {
+    padding: 0.4rem 0.5rem;
+    margin: 0 0.35rem;
+    font-size: 0.8125rem;
+  }
+
+  .selector__content {
+    padding: 0.75rem;
+  }
+
+  .selector__label {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .selector__checkbox {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .selector__item-value {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .selector__sidebar {
+    width: 100px;
+  }
+
+  .selector__back,
+  .selector__nav-item {
+    font-size: 0.6875rem;
+  }
+}
+
+.selector__nav-item:hover {
+  background: var(--color-surface-elevated);
+}
+
+.selector__nav-item_active {
+  background: var(--color-accent-muted);
+  color: var(--color-accent);
+}
+
+.selector__nav-caret {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.selector__content {
+  flex: 1;
+  overflow: auto;
+  padding: 1.5rem;
+  background: var(--color-surface-elevated);
+}
+
+.selector__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 480px;
+}
+
+.selector__list-item {
+  margin: 0;
+}
+
+.selector__label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.25rem 0.75rem;
+  align-items: start;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.selector__label:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-muted);
+}
+
+.selector__checkbox {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0.2rem 0 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  grid-row: 1 / -1;
+}
+
+.selector__item-name {
+  font-weight: 500;
+  color: var(--color-text);
+  grid-column: 2;
+}
+
+.selector__item-value {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  grid-column: 2;
+  padding-left: 0;
+}

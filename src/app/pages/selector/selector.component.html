@@ -1,0 +1,48 @@
+<div class="selector">
+  <header class="selector__header">
+    <span class="selector__section-label">
+      {{ labels.sectionPrefix }} {{ activeSection()?.title ?? labels.noSection }}
+    </span>
+    <span class="selector__stats">
+      {{ labels.selectedCount }} {{ selectedCount() }} · {{ labels.totalValue }} {{ totalValue() }}
+    </span>
+  </header>
+
+  <div class="selector__body">
+    <nav class="selector__sidebar">
+      <a [routerLink]="routes.home" class="selector__back">{{ labels.backToHome }}</a>
+      @for (section of sections(); track section.id) {
+        <button
+          type="button"
+          class="selector__nav-item"
+          [class.selector__nav-item_active]="activeSectionId() === section.id"
+          (click)="setActiveSection(section.id)"
+        >
+          {{ section.title }}
+          <span class="selector__nav-caret">›</span>
+        </button>
+      }
+    </nav>
+
+    <main class="selector__content">
+      @if (activeSection(); as section) {
+        <ul class="selector__list">
+          @for (item of section.items; track item.id) {
+            <li class="selector__list-item">
+              <label class="selector__label">
+                <input
+                  type="checkbox"
+                  class="selector__checkbox"
+                  [checked]="item.checked"
+                  (change)="toggleItem(section.id, item.id)"
+                />
+                <span class="selector__item-name">{{ item.label }}</span>
+                <span class="selector__item-value">{{ labels.valuePrefix }} {{ item.value }}</span>
+              </label>
+            </li>
+          }
+        </ul>
+      }
+    </main>
+  </div>
+</div>
