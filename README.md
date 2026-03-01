@@ -24,6 +24,16 @@ npm run build
 
 Артефакты появятся в папке `dist/selectel-frontend-test`.
 
+## GitHub Pages
+
+При пуше в ветку `main` приложение автоматически собирается и публикуется на GitHub Pages.
+
+**Один раз настрой репозиторий:**  
+Страница репозитория → **Settings** → **Pages** → в блоке **Build and deployment** выбери источник **GitHub Actions**.
+
+После этого после каждого `git push origin main` workflow сам соберёт проект и задеплоит его. Сайт будет доступен по адресу:  
+**https://gaminv.github.io/testovoe_selectel/**
+
 ## Структура
 
 - **Первая страница** (`/`) — приветствие и ссылка на страницу выбора.
